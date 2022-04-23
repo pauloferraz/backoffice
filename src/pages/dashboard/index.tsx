@@ -1,3 +1,18 @@
+import { useAuth } from 'contexts';
+
 export function DashboardPage() {
-	return <h3>Dashboard</h3>;
+	let { signout } = useAuth();
+
+	return (
+		<h3>
+			Dashboard{' '}
+			<button
+				onClick={() => {
+					signout();
+				}}
+			>
+				Sign out
+			</button>
+		</h3>
+	);
 }

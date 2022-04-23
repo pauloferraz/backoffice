@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { AuthStatus } from '../auth-status';
+import { AuthStatus } from 'components/auth-status';
 
 export function Sidebar() {
 	return (

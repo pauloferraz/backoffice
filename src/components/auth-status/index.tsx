@@ -1,20 +1,18 @@
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../contexts/auth';
+import { useAuth } from 'contexts/auth';
 
 export function AuthStatus() {
-	let auth = useAuth();
-	let navigate = useNavigate();
+	let { getCurrentAccount, signout } = useAuth();
 
-	if (!auth.user) {
+	if (!getCurrentAccount()) {
 		return <p>You are not logged in.</p>;
 	}
 
 	return (
 		<p>
-			Welcome {auth.user}!{' '}
+			Welcome!{' '}
 			<button
 				onClick={() => {
-					auth.signout(() => navigate('/'));
+					signout();
 				}}
 			>
 				Sign out

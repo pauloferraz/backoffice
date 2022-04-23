@@ -1,7 +1,5 @@
+import { DashboardPage, LoginPage, PublicPage } from 'pages';
 import { Routes, Route } from 'react-router-dom';
-import { DashboardPage } from '../pages/dashboard';
-import { PublicPage } from '../pages/home';
-import { LoginPage } from '../pages/login';
 import { PrivateRoutes } from './private-routes';
 
 export function Router() {

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { AuthStatus } from '../../hooks/user';
+import { AuthStatus } from 'components/auth-status';
 
 export function PublicPage() {
 	return (
