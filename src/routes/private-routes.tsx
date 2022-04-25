@@ -9,5 +9,10 @@ export function PrivateRoutes() {
 		return <Navigate to='/login' state={{ from: location }} replace />;
 	}
 
-	return <Outlet />;
+	return (
+		<>
+			<h3>NAVBAR</h3>
+			<Outlet />
+		</>
+	);
 }
