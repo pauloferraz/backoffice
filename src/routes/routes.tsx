@@ -1,4 +1,4 @@
-import { DashboardPage, LoginPage, PostPage, PublicPage, UserPage } from 'pages';
+import { DashboardPage, DocumentPage, HelpPage, LoginPage, PostPage, PublicPage, SettingsPage, UserPage, WithdrawalPage } from 'pages';
 import { Routes, Route } from 'react-router-dom';
 import { PrivateRoutes } from './private-routes';
 
@@ -11,6 +11,10 @@ export function Router() {
 				<Route path='/dashboard' element={<DashboardPage />} />
 				<Route path='/posts' element={<PostPage />} />
 				<Route path='/users' element={<UserPage />} />
+				<Route path='/settings' element={<SettingsPage />} />
+				<Route path='/help' element={<HelpPage />} />
+				<Route path='/documents' element={<DocumentPage />} />
+				<Route path='/withdrawal' element={<WithdrawalPage />} />
 			</Route>
 		</Routes>
 	);

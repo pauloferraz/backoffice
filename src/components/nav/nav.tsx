@@ -29,19 +29,25 @@ export default  function Nav() {
 						</Link>
 					</li>
 					<li className="nav-main-item">
-						<Link to='/posts' className="nav-main-link">
+						<Link to='/settings' className="nav-main-link">
 							<i className="nav-main-link-icon fa-solid fa-gear"></i>
 							<span className="nav-main-link-name">Configurações</span>
 						</Link>
 					</li>
 					<li className="nav-main-item">
-						<Link to='/posts' className="nav-main-link">
+						<Link to='/help' className="nav-main-link">
 							<i className="nav-main-link-icon fa-solid fa-life-ring"></i>
 							<span className="nav-main-link-name">Páginas de Help</span>
 						</Link>
 					</li>
 					<li className="nav-main-item">
-						<Link to='/posts' className="nav-main-link">
+						<Link to='/documents' className="nav-main-link">
+							<i className="nav-main-link-icon fa-solid fa-id-card"></i>
+							<span className="nav-main-link-name">Documentos</span>
+						</Link>
+					</li>
+					<li className="nav-main-item">
+						<Link to='/withdrawal' className="nav-main-link">
 							<i className="nav-main-link-icon fa-solid fa-money-bill-transfer"></i>
 							<span className="nav-main-link-name">Solicitações de Retirada</span>
 						</Link>

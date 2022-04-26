@@ -2,8 +2,16 @@ import { AuthStatus } from 'components/auth-status';
 import { DarkModeContext } from 'contexts/dark-mode/darkModeContext';
 import { useContext } from 'react';
 
+type StateType = {
+	darkMode: boolean;
+};
+
 export default function Header() {
-	const { dispatch } = useContext(DarkModeContext);
+	const { dispatch, state } = useContext(DarkModeContext);
+
+	function icon(state: StateType) {
+		return  state.darkMode ? 'fa-moon' : 'fa-sun'
+	}
 
 	return (
 		<header id='page-header'>
@@ -16,8 +24,8 @@ export default function Header() {
 						data-action='dark_mode_toggle'
 						onClick={() => dispatch({ type: 'TOGGLE' })}
 					>
+						<i className={`${icon(state)} fa-solid fa-fw`}></i>
 						DARK MODE
-						<i className='far fa-moon'></i>
 					</button>
 				</div>
 				<div className='d-flex align-items-center'>
