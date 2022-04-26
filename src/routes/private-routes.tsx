@@ -1,10 +1,15 @@
+import { useContext } from 'react';
 import Header from 'components/header';
 import Nav from 'components/nav/nav';
 import { useAuth } from 'contexts';
+import { DarkModeContext } from 'contexts/dark-mode/darkModeContext';
 import { useLocation, Navigate, Outlet } from 'react-router-dom';
 
 export function PrivateRoutes() {
 	let { getCurrentAccount } = useAuth();
+	const {
+		state: { darkMode }
+	} = useContext(DarkModeContext);
 	let location = useLocation();
 
 	if (!getCurrentAccount()) {
@@ -14,7 +19,9 @@ export function PrivateRoutes() {
 	return (
 		<div
 			id='page-container'
-			className='sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed main-content-narrow'
+			className={`sidebar-o ${
+				darkMode ? 'page-header-dark dark-mode sidebar-dark' : ''
+			} enable-page-overlay side-scroll page-header-fixed main-content-narrow`}
 		>
 			<Nav />
 			<Header />
