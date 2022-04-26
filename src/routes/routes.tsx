@@ -1,4 +1,4 @@
-import { DashboardPage, LoginPage, PublicPage } from 'pages';
+import { DashboardPage, LoginPage, PostPage, PublicPage, UserPage } from 'pages';
 import { Routes, Route } from 'react-router-dom';
 import { PrivateRoutes } from './private-routes';
 
@@ -9,6 +9,8 @@ export function Router() {
 			<Route path='/login' element={<LoginPage />} />
 			<Route element={<PrivateRoutes />}>
 				<Route path='/dashboard' element={<DashboardPage />} />
+				<Route path='/posts' element={<PostPage />} />
+				<Route path='/users' element={<UserPage />} />
 			</Route>
 		</Routes>
 	);

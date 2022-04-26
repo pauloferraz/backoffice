@@ -27,9 +27,7 @@ export function PrivateRoutes() {
 			<Header />
 			<main id='main-container'>
 				<div className='content'>
-					<div className='d-flex flex-column flex-md-row justify-content-md-between align-items-md-center py-2 text-center text-md-start'>
-						<Outlet />
-					</div>
+					<Outlet />
 				</div>
 			</main>
 		</div>

@@ -14,7 +14,10 @@ export function Sidebar() {
 					<Link to='/login'>Login Page</Link>
 				</li>
 				<li>
-					<Link to='/dashboard'>Dashboard Page</Link>
+					<Link to='/dashboard'>
+						<i className="fa-solid fa-location-arrow"></i>
+						Dashboard Page
+					</Link>
 				</li>
 			</ul>
 		</div>
