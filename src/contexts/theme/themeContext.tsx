@@ -10,13 +10,9 @@ type Props = {
 export const ThemeProvider: React.FC<Props> = ({ children }) => {
 	const [theme, setTheme] = useState<ITheme>({
 		darkMode: false,
-		sidebarOpen: false
+		sidebarOpen: false,
+		userDropDown: false
 	});
-
-	const iconTheme = () => {
-		const { darkMode } = theme;
-		return darkMode ? 'fa-moon' : 'fa-sun';
-	};
 
 	const toggleTheme = () => {
 		setTheme({ ...theme, darkMode: !theme.darkMode });
@@ -26,8 +22,17 @@ export const ThemeProvider: React.FC<Props> = ({ children }) => {
 		setTheme({ ...theme, sidebarOpen: !theme.sidebarOpen });
 	};
 
+	const iconTheme = () => {
+		const { darkMode } = theme;
+		return darkMode ? 'fa-moon' : 'fa-sun';
+	};
+
+	const toggleUserDropDown = () => {
+		setTheme({ ...theme, userDropDown: !theme.userDropDown });
+	};
+
 	return (
-		<ThemeContext.Provider value={{ theme, toggleSidebar, toggleTheme, iconTheme }}>
+		<ThemeContext.Provider value={{ theme, toggleSidebar, toggleTheme, iconTheme, toggleUserDropDown }}>
 			{children}
 		</ThemeContext.Provider>
 	);

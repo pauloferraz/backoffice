@@ -17,7 +17,7 @@ export default function Header() {
 						data-action='sidebar_toggle'
 						onClick={() => toggleSidebar()}
 					>
-						<i className='fa fa-fw fa-bars'></i>
+						<i className='fa-solid fa-fw fa-bars'></i>
 					</button>
 				</div>
 				<div className='d-flex align-items-center'>
