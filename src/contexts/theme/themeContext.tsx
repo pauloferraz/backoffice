@@ -13,6 +13,11 @@ export const ThemeProvider: React.FC<Props> = ({ children }) => {
 		sidebarOpen: false
 	});
 
+	const iconTheme = () => {
+		const { darkMode } = theme;
+		return darkMode ? 'fa-moon' : 'fa-sun';
+	};
+
 	const toggleTheme = () => {
 		setTheme({ ...theme, darkMode: !theme.darkMode });
 	};
@@ -22,7 +27,7 @@ export const ThemeProvider: React.FC<Props> = ({ children }) => {
 	};
 
 	return (
-		<ThemeContext.Provider value={{ theme, toggleSidebar, toggleTheme }}>
+		<ThemeContext.Provider value={{ theme, toggleSidebar, toggleTheme, iconTheme }}>
 			{children}
 		</ThemeContext.Provider>
 	);

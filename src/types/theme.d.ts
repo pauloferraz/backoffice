@@ -1,9 +1,10 @@
 export interface ITheme {
-	darkMode: boolean;
-	sidebarOpen: boolean;
+  darkMode: boolean;
+  sidebarOpen: boolean;
 }
 export type ThemeContextType = {
-	theme: ITheme;
-	toggleTheme: () => void;
-	toggleSidebar: () => void;
+  theme: ITheme;
+  iconTheme: () => string;
+  toggleTheme: () => void;
+  toggleSidebar: () => void;
 };

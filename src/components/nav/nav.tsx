@@ -4,13 +4,9 @@ import { Link } from 'react-router-dom';
 import { ThemeContextType } from 'types/theme';
 
 export default function Nav() {
-	const { theme, toggleTheme, toggleSidebar } = useContext(
+	const { iconTheme, toggleTheme, toggleSidebar } = useContext(
 		ThemeContext
 	) as ThemeContextType;
-
-	function icon() {
-		return theme.darkMode ? 'fa-moon' : 'fa-sun';
-	}
 
 	return (
 		<nav id='sidebar' aria-label='Main Navigation'>
@@ -32,7 +28,7 @@ export default function Nav() {
 						data-action='dark_mode_toggle'
 						onClick={() => toggleTheme()}
 					>
-						<i className={`${icon()} fa-solid fa-fw`}></i>
+						<i className={`${iconTheme()} fa-solid fa-fw`}></i>
 					</button>
 					<button
 						type='button'
