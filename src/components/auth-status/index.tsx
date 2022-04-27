@@ -3,17 +3,25 @@ import { useAuth } from 'contexts/auth';
 import { useNavigate, Link } from 'react-router-dom';
 import { ThemeContextType } from 'types/theme';
 import { ThemeContext } from 'contexts/theme/themeContext';
+import useOuterClick from 'hooks/useOuterClick';
 
 export function AuthStatus() {
 	let { getCurrentAccount, signout } = useAuth();
 	const navigate = useNavigate();
 	const { theme, toggleUserDropDown } = useContext(ThemeContext) as ThemeContextType;
+	const ref = useOuterClick<HTMLButtonElement>((e: any) => {
+		e.preventDefault();
+		if (theme.userDropDown) {
+			toggleUserDropDown()
+		}
+	});
 
 	return (
 		<div className='dropdown d-inline-block ms-2'>
 			{getCurrentAccount() ? (
 				<div className='dropdown d-inline-block ms-2'>
 					<button
+						ref={ref}
 						type='button'
 						className='btn btn-sm btn-alt-secondary d-flex align-items-center'
 						id='page-header-user-dropdown'
@@ -48,7 +56,6 @@ export function AuthStatus() {
 						<div role="separator" className="dropdown-divider m-0"></div>
 						<div className="p-2">
 							<button onClick={() => {
-							toggleUserDropDown();
 							signout();
 						}} className="dropdown-item d-flex align-items-center justify-content-between rounded">
 							<i className="fa-solid fa-fw fa-sign-out-alt"></i> Sair
