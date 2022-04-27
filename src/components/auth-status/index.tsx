@@ -36,6 +36,9 @@ export function AuthStatus() {
 							alt='Header Avatar'
 						/>
 						<span className='d-none d-sm-inline-block ms-2'>John Doe</span>
+						<i className={`d-none d-sm-inline-block fa-solid fa-fw ${
+							theme.userDropDown ? 'fa-angle-up' : 'fa-angle-down'
+						}`}></i>
 					</button>
 					<div
 						aria-labelledby="page-header-user-dropdown"
