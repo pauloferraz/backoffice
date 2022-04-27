@@ -21,7 +21,7 @@ export function PrivateRoutes() {
 			className={`sidebar-o ${
 				theme.darkMode ? 'page-header-dark dark-mode sidebar-dark' : ''
 			} enable-page-overlay side-scroll page-header-fixed main-content-narrow ${
-				theme.sidebarOpen ? 'sidebar-o-xs' : ''
+				theme.sidebarOpen ? 'sidebar-o-xs side-trans-enabled' : ''
 			}`}
 		>
 			<Nav />
