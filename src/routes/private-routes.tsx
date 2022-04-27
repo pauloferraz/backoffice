@@ -1,16 +1,15 @@
 import { useContext } from 'react';
+import { useLocation, Navigate, Outlet } from 'react-router-dom';
+import { ThemeContextType } from 'types/theme';
 import Header from 'components/header';
 import Nav from 'components/nav/nav';
 import { useAuth } from 'contexts';
-import { DarkModeContext } from 'contexts/dark-mode/darkModeContext';
-import { useLocation, Navigate, Outlet } from 'react-router-dom';
+import { ThemeContext } from 'contexts/theme/themeContext';
 
 export function PrivateRoutes() {
 	let { getCurrentAccount } = useAuth();
-	const {
-		state: { darkMode }
-	} = useContext(DarkModeContext);
 	let location = useLocation();
+	const { theme } = useContext(ThemeContext) as ThemeContextType;
 
 	if (!getCurrentAccount()) {
 		return <Navigate to='/login' state={{ from: location }} replace />;
@@ -20,8 +19,10 @@ export function PrivateRoutes() {
 		<div
 			id='page-container'
 			className={`sidebar-o ${
-				darkMode ? 'page-header-dark dark-mode sidebar-dark' : ''
-			} enable-page-overlay side-scroll page-header-fixed main-content-narrow`}
+				theme.darkMode ? 'page-header-dark dark-mode sidebar-dark' : ''
+			} enable-page-overlay side-scroll page-header-fixed main-content-narrow ${
+				theme.sidebarOpen ? 'sidebar-o-xs' : ''
+			}`}
 		>
 			<Nav />
 			<Header />

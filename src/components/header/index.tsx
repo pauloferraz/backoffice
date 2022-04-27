@@ -1,17 +1,10 @@
-import { AuthStatus } from 'components/auth-status';
-import { DarkModeContext } from 'contexts/dark-mode/darkModeContext';
 import { useContext } from 'react';
-
-type StateType = {
-	darkMode: boolean;
-};
+import { ThemeContextType } from 'types/theme';
+import { AuthStatus } from 'components/auth-status';
+import { ThemeContext } from 'contexts/theme/themeContext';
 
 export default function Header() {
-	const { dispatch, state } = useContext(DarkModeContext);
-
-	function icon(state: StateType) {
-		return  state.darkMode ? 'fa-moon' : 'fa-sun'
-	}
+	const { toggleSidebar } = useContext(ThemeContext) as ThemeContextType;
 
 	return (
 		<header id='page-header'>
@@ -19,13 +12,12 @@ export default function Header() {
 				<div>
 					<button
 						type='button'
-						className='btn btn-sm btn-alt-secondary'
+						className='btn btn-sm btn-alt-secondary me-2 d-lg-none'
 						data-toggle='layout'
-						data-action='dark_mode_toggle'
-						onClick={() => dispatch({ type: 'TOGGLE' })}
+						data-action='sidebar_toggle'
+						onClick={() => toggleSidebar()}
 					>
-						<i className={`${icon(state)} fa-solid fa-fw`}></i>
-						DARK MODE
+						<i className='fa fa-fw fa-bars'></i>
 					</button>
 				</div>
 				<div className='d-flex align-items-center'>

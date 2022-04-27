@@ -4,18 +4,18 @@ import './assets/scss/main.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { DarkModeContextProvider } from 'contexts/dark-mode/darkModeContext';
+import { ThemeProvider } from 'contexts/theme/themeContext';
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
 root.render(
 	<React.StrictMode>
-		<DarkModeContextProvider>
+		<ThemeProvider>
 			<BrowserRouter>
 				<App />
 			</BrowserRouter>
-		</DarkModeContextProvider>
+		</ThemeProvider>
 	</React.StrictMode>
 );
 
