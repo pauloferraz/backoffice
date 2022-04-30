@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { ThemeContextType, ITheme } from 'types/theme';
 
 export const ThemeContext = createContext<ThemeContextType | null>(null);
@@ -15,6 +15,7 @@ export const ThemeProvider: React.FC<Props> = ({ children }) => {
 	});
 
 	const toggleTheme = () => {
+		localStorage.setItem('darkMode', JSON.stringify(!theme.darkMode));
 		setTheme({ ...theme, darkMode: !theme.darkMode });
 	};
 
@@ -31,8 +32,21 @@ export const ThemeProvider: React.FC<Props> = ({ children }) => {
 		setTheme({ ...theme, userDropDown: !theme.userDropDown });
 	};
 
+	useEffect(() => {
+		const storageTheme = localStorage.getItem('darkMode');
+		setTheme({ ...theme, darkMode: JSON.parse(storageTheme!) });
+	}, [theme]);
+
 	return (
-		<ThemeContext.Provider value={{ theme, toggleSidebar, toggleTheme, iconTheme, toggleUserDropDown }}>
+		<ThemeContext.Provider
+			value={{
+				theme,
+				toggleSidebar,
+				toggleTheme,
+				iconTheme,
+				toggleUserDropDown
+			}}
+		>
 			{children}
 		</ThemeContext.Provider>
 	);
