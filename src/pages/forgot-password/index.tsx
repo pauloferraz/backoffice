@@ -1,8 +1,9 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-export function LoginPage() {
+export function ForgotPasswordPage() {
   const navigate = useNavigate();
+
   const { register, handleSubmit } = useForm();
 
   const onSubmit: SubmitHandler<any> = (data) => console.log(data);
@@ -69,15 +70,9 @@ export function LoginPage() {
                     <p className="mb-3">
                       <i className="fa fa-2x fa-circle-notch text-primary-light"></i>
                     </p>
-                    <h1 className="fw-bold mb-2">Login</h1>
+                    <h1 className="fw-bold mb-2">Esqueci minha senha</h1>
                     <p className="fw-medium text-muted">
-                      Bem-vindo, faça o login ou{" "}
-                      <button
-                        className="fw-medium text-primary border-0 px-0 bg-transparent"
-                        onClick={() => navigate("/register")}>
-                        cadastre-se
-                      </button>{" "}
-                      para uma nova conta.
+                      Digite seu e-mail para recuperar sua senha
                     </p>
                   </div>
 
@@ -94,20 +89,12 @@ export function LoginPage() {
                             className="form-control form-control-lg form-control-alt py-3"
                           />
                         </div>
-                        <div className="mb-4">
-                          <input
-                            type="password"
-                            {...register("password")}
-                            placeholder="Password"
-                            className="form-control form-control-lg form-control-alt py-3"
-                          />
-                        </div>
                         <div className="d-flex justify-content-between align-items-center mb-4">
                           <div>
                             <button
-                              className="text-muted fs-sm fw-medium d-block d-lg-inline-block mb-1 border-0 bg-transparent"
-                              onClick={() => navigate("/forgot-password")}>
-                              Esqueceu sua senha?
+                              className="text-muted fs-sm fw-medium d-block d-lg-inline-block mb-1 border-0 px-0 bg-transparent"
+                              onClick={() => navigate("/login")}>
+                              Voltar para login
                             </button>
                           </div>
                           <div>
@@ -115,7 +102,7 @@ export function LoginPage() {
                               type="submit"
                               className="btn btn-lg btn-alt-primary">
                               <i className="fa fa-fw fa-sign-in-alt me-1 opacity-50"></i>{" "}
-                              Entrar
+                              Enviar
                             </button>
                           </div>
                         </div>

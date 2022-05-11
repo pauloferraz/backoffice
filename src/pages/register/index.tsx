@@ -1,11 +1,27 @@
+import { useAuth } from "contexts";
+import { UserParamsData } from "interfaces/user";
+import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-export function LoginPage() {
+export function RegisterPage() {
+  const { signup } = useAuth();
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<UserParamsData>();
+  const [formError, setFormError] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit: SubmitHandler<any> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<UserParamsData> = async (data) => {
+    setFormError(undefined);
+    setIsLoading(true);
+    try {
+      await signup(data);
+      navigate("/dashboard");
+    } catch (error) {
+      setFormError(error.message);
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div id="page-container">
@@ -69,15 +85,9 @@ export function LoginPage() {
                     <p className="mb-3">
                       <i className="fa fa-2x fa-circle-notch text-primary-light"></i>
                     </p>
-                    <h1 className="fw-bold mb-2">Login</h1>
+                    <h1 className="fw-bold mb-2">Registrar</h1>
                     <p className="fw-medium text-muted">
-                      Bem-vindo, faça o login ou{" "}
-                      <button
-                        className="fw-medium text-primary border-0 px-0 bg-transparent"
-                        onClick={() => navigate("/register")}>
-                        cadastre-se
-                      </button>{" "}
-                      para uma nova conta.
+                      Por favor, preencha os campos para se cadastrar
                     </p>
                   </div>
 
@@ -88,7 +98,7 @@ export function LoginPage() {
                         className="js-validation-signin">
                         <div className="mb-4">
                           <input
-                            type="text"
+                            type="email"
                             {...register("email")}
                             placeholder="email@email.com"
                             className="form-control form-control-lg form-control-alt py-3"
@@ -98,24 +108,39 @@ export function LoginPage() {
                           <input
                             type="password"
                             {...register("password")}
-                            placeholder="Password"
+                            placeholder="********"
                             className="form-control form-control-lg form-control-alt py-3"
                           />
                         </div>
+
+                        {formError && (
+                          <div className="alert alert-danger" role="alert">
+                            <p className="fw-medium fs-sm text-center mb-0">
+                              {formError}
+                            </p>
+                          </div>
+                        )}
+
                         <div className="d-flex justify-content-between align-items-center mb-4">
                           <div>
                             <button
-                              className="text-muted fs-sm fw-medium d-block d-lg-inline-block mb-1 border-0 bg-transparent"
-                              onClick={() => navigate("/forgot-password")}>
-                              Esqueceu sua senha?
+                              className="text-muted fs-sm fw-medium d-block d-lg-inline-block mb-1 border-0 px-0 bg-transparent"
+                              onClick={() => navigate("/login")}>
+                              Voltar para login
                             </button>
                           </div>
                           <div>
                             <button
                               type="submit"
                               className="btn btn-lg btn-alt-primary">
-                              <i className="fa fa-fw fa-sign-in-alt me-1 opacity-50"></i>{" "}
-                              Entrar
+                              {isLoading ? (
+                                <div
+                                  className="spinner-border spinner-border-sm me-2 opacity-50"
+                                  role="status"></div>
+                              ) : (
+                                <i className="fa fa-fw fa-sign-in-alt me-1 opacity-50"></i>
+                              )}{" "}
+                              Cadastrar
                             </button>
                           </div>
                         </div>

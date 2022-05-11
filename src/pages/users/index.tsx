@@ -6,7 +6,7 @@ export function UserPage() {
 				<div className="d-flex">
 					<h1 className='fw-light'>Usuários</h1>
 					<div className="ms-auto">
-						<a href="#" className="btn btn-primary">
+						<a href="/#" className="btn btn-primary">
 							<i className="fa-solid fa-plus me-1"></i> Novo
 						</a>
 					</div>
@@ -42,7 +42,7 @@ export function UserPage() {
 							<nav aria-label="Page navigation">
 								<ul className="pagination justify-content-center">
 									<li className="page-item">
-										<a className="page-link" aria-label="Previous">
+										<a  href="/#"className="page-link" aria-label="Previous">
 											<span aria-hidden="true">
 												<i className="fa fa-angle-double-left"></i>
 											</span>
@@ -50,19 +50,19 @@ export function UserPage() {
 										</a>
 									</li>
 									<li className="page-item active">
-										<a className="page-link">1</a>
+										<a href="/#" className="page-link">1</a>
 									</li>
 									<li className="page-item">
-										<a className="page-link">2</a>
+										<a href="/#" className="page-link">2</a>
 									</li>
 									<li className="page-item disabled">
-										<a className="page-link">3</a>
+										<a href="/#" className="page-link">3</a>
 									</li>
 									<li className="page-item">
-										<a className="page-link">4</a>
+										<a href="/#" className="page-link">4</a>
 									</li>
 									<li className="page-item">
-										<a className="page-link" aria-label="Next">
+										<a href="/#" className="page-link" aria-label="Next">
 											<span aria-hidden="true">
 												<i className="fa fa-angle-double-right"></i>
 											</span>
