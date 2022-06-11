@@ -1,6 +1,6 @@
 import Header from "components/header";
 
-export function PublicPage() {
+export function NotFoundPage() {
   return (
     <div>
       <div className="bg-image">
@@ -13,7 +13,7 @@ export function PublicPage() {
                   <div className="col-md-6 py-3 text-center">
                     <div className="push">
                       <p className="link-fx fw-bold fs-1">
-                        <span className="text-white">Home Page</span>
+                        <span className="text-white">404 Page</span>
                       </p>
                       <p className="text-white-75">
                         Stay tuned! We are working on it and it is coming soon!

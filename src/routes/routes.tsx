@@ -1,4 +1,5 @@
 import {
+  NotFoundPage,
   DashboardPage,
   DocumentPage,
   LoginPage,
@@ -24,6 +25,7 @@ export function Router() {
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/documents" element={<DocumentPage />} />
       </Route>
+      <Route path="/*" element={<NotFoundPage />} />
     </Routes>
   );
 }
